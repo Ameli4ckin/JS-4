@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Homework</title>
+</head>
+
+<body>
+  <!--
+Обязательное задание.
+
+Необходимо данное задание выполнить в es5 стиле и в es6 стиле.
+Необходимо создать функцию-конструктор/класс для продукта.
+Названия: `ProductES5` для es5 стиля, `ProductES6` для es6 стиля.
+При создании объекта от функции-конструктора/класса необходимо передавать имя
+и цену товара, эта информация должна быть сохранена в объекте.
+Также у объекта должна быть возможность выполнить метод `make25Discount`, данный
+метод должен уменьшать стоимость продукта на 25%.
+Необходимо продемонстрировать работу с объектом (в свободной форме).
+-->
+  <script>
+    "use strict";
+
+    function ProductES5(name, prise) {
+      this.name = name;
+      this.prise = prise;
+    };
+
+    ProductES5.prototype.make25Discount = function () {
+      this.prise *= 0.75;
+    };
+
+    const productES5 = new ProductES5('Яблоки', 100);
+    console.log(`Товар: ${productES5.name}, цена: ${productES5.prise}`);
+
+    productES5.make25Discount();
+    console.log(`Товар: ${productES5.name}, \
+цена со скидкой: ${productES5.prise}`);
+
+    // не совсем понял почему иногда необходимо писать productES5 с маленькой буквы,
+    // пришлось подсмотреть даже
+
+    //==========================================================
+
+    class ProductES6 {
+      constructor(name, prise) {
+        this.name = name;
+        this.prise = prise;
+      }
+      make25Discount() {
+        this.prise *= 0.75;
+      }
+    }
+
+    const productES6 = new ProductES6('Яблоки', 100);
+    console.log(`Товар: ${productES6.name}, цена: ${productES6.prise}`);
+
+    productES6.make25Discount();
+    console.log(`Товар: ${productES6.name}, \
+цена со скидкой: ${productES6.prise}`);
+
+  </script>
+</body>
+
+</html>
